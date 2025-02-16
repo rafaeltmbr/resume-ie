@@ -49,11 +49,6 @@ class ProfessionalDescription:
   summary: str
 
 @dataclass
-class Language:
-  language: str
-  proficiency: str
-
-@dataclass
 class Job:
   title: str
   description: str
@@ -85,6 +80,11 @@ class Certification:
 class Education:
   degrees: list[Degree]
   certifications: list[Certification]
+
+@dataclass
+class Language:
+  language: str
+  proficiency: str
  
 @dataclass
 class Project:
@@ -104,9 +104,27 @@ class Award:
 @dataclass
 class Publication:
   title: str
+  description: str
   type: str
   date: Date
   link: Link
+
+@dataclass
+class Patent:
+  title: str
+  description: str
+  number: str
+  date: Date
+  link: Link
+
+@dataclass
+class TestScore:
+  title: str
+  description: str
+  score: str
+  organization: Organization
+  link: Link
+  date: Date
 
 @dataclass
 class Membership:
@@ -124,12 +142,15 @@ class Reference:
 class Resume:
   personal: PersonalInformation
   professional: ProfessionalDescription
-  skills: list[str]
-  languages: list[Language]
   experience: Experience
   education: Education
+  skills: list[str]
+  languages: list[Language]
   projects: list[Project]
   awards: list[Award]
   publications: list[Publication]
+  patents: list[Patent]
+  scores: list[TestScore]
   memberships: list[Membership]
+  causes: list[str]
   references: list[Reference]
